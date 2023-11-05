@@ -1,13 +1,9 @@
 #!/usr/bin/python3
-
-
 """
 Script to gather data from the JSONPlaceholder API.
 
 Fetches and displays an employee's TODO list progress.
 """
-
-
 import requests
 import sys
 
