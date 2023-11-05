@@ -15,12 +15,13 @@ def fetch_employee_tasks(employee_id):
     Args:
     - employee_id: ID of the employee to fetch tasks for.
     """
-    user_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
+    base_url = "https://jsonplaceholder.typicode.com"
+    user_url = f"{base_url}/users/{employee_id}"
     user_response = requests.get(user_url)
     user_data = user_response.json()
     username = user_data.get("username", "Unknown")
 
-    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    todo_url = f"{base_url}/todos?userId={employee_id}"
     todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
