@@ -1,22 +1,20 @@
 #!/usr/bin/python3
-"""
-Script to gather data from the JSONPlaceholder API.
 
-Fetches and displays an employee's TODO list progress.
+
+"""
+This is the first file I created for the APIs
 """
 import requests
 import sys
 
 
-def fetch_employee_task(employee_id):
-    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(
-        employee_id)
+def fetch_employee_tasks(employee_id):
+    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
     user_response = requests.get(user_url)
     user_data = user_response.json()
-    employee_name = user_data.get("name")
+    employee_name = user_data.get("name", "Unknown")
 
-    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={
-        employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
@@ -34,4 +32,4 @@ if __name__ == "__main__":
     # Taking input from the command line
     employee_id = sys.argv[1]
     # Calling the fetch_employee function
-    fetch_employee_task(employee_id)
+    fetch_employee_tasks(employee_id)
