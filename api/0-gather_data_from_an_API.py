@@ -10,12 +10,12 @@ import sys
 
 def fetch_employee_task(employee_id):
     user_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
-    user_resp = requests.get(user_url)
-    user_data = user_resp.json()
-    employee_name = user_data.get("name", "Unknown")
+    user_response = requests.get(user_url)
+    user_data = user_response.json()
+    employee_name = user_data.get("name")
 
-    t_ul = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
-    todo_response = requests.get(t_ul)
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
     total_tasks = len(todos)
