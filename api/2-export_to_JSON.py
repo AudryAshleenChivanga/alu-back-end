@@ -42,6 +42,6 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: ./script_name.py employee_id")
         sys.exit(1)
-    
+        
     employee_id = sys.argv[1]
     fetch_employee_tasks(employee_id)
