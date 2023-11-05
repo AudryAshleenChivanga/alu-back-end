@@ -2,7 +2,6 @@
 """
 Module to fetch and export data in the JSON format for a given employee.
 """
-
 import json
 import requests
 import sys
