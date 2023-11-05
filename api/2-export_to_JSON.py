@@ -1,20 +1,26 @@
 #!/usr/bin/python3
 """
-Using what you did in the task #0, extend your Python script to export data in the JSON format.
+Module to fetch and export data in the JSON format for a given employee.
 """
+
 import json
 import requests
 import sys
 
 
 def fetch_employee_tasks(employee_id):
+    """
+    Fetch tasks for an employee and write them to a JSON file.
+
+    Args:
+    - employee_id: ID of the employee to fetch tasks for.
+    """
     user_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     user_response = requests.get(user_url)
     user_data = user_response.json()
     username = user_data.get("username", "Unknown")
 
-    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={
-        employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
@@ -30,6 +36,12 @@ def fetch_employee_tasks(employee_id):
     with open(f"{employee_id}.json", "w") as jsonfile:
         json.dump({employee_id: tasks_list}, jsonfile)
 
+
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        print("Usage: ./script_name.py employee_id")
+        sys.exit(1)
+    
     employee_id = sys.argv[1]
     fetch_employee_tasks(employee_id)
+
