@@ -3,9 +3,9 @@
 """
 This is the first file I created for the APIs
 """
+import csv
 import requests
 import sys
-import csv
 
 
 def fetch_employee_tasks(employee_id):
