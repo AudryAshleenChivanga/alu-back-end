@@ -9,6 +9,7 @@ Python script to export data in the JSON format.
 import json
 import requests
 
+
 def fetch_all_tasks_for_all_users():
     # Base URLs
     users_url = "https://jsonplaceholder.typicode.com/users"
