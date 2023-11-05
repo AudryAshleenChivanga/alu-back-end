@@ -33,5 +33,3 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1].isdigit():
         user_id = sys.argv[1]
         fetch_employee_data(user_id)
-    else:
-        print("Please provide a valid user ID as an argument.")
