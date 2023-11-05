@@ -14,8 +14,7 @@ def fetch_employee_tasks(employee_id):
     user_data = user_response.json()
     employee_name = user_data.get("name", "Unknown")
 
-    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={
-        employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
     todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
