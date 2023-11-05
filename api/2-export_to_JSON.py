@@ -2,12 +2,12 @@
 
 
 """
-Using what you did in the task #0, extend your 
-Python script to export data in the JSON format.
+Using what you did in the task #0, extend your Python script to export data in the JSON format.
 """
 import json
 import requests
 import sys
+
 
 def fetch_employee_tasks(employee_id):
     user_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
@@ -15,7 +15,8 @@ def fetch_employee_tasks(employee_id):
     user_data = user_response.json()
     username = user_data.get("username", "Unknown")
 
-    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}"
+    todo_url = f"https://jsonplaceholder.typicode.com/todos?userId={
+        employee_id}"
     todo_response = requests.get(todo_url)
     todos = todo_response.json()
 
