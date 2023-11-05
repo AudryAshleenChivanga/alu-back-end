@@ -11,14 +11,20 @@ import sys
 
 def fetch_employee_data(user_id):
     """Fetch and display the employee's TODO list progress."""
-    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(user_id)).json()
-    todos = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.format(user_id)).json()
+    user = requests.get(
+        'https://jsonplaceholder.typicode.com/users/{}'.format(
+            user_id)).json()
+    todos = requests.get(
+        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
+            user_id)).json()
 
     completed_tasks = [task for task in todos if task.get('completed')]
     total_tasks = len(todos)
     completed_count = len(completed_tasks)
 
-    print("Employee {} is done with tasks({}/{}):".format(user.get('name'), completed_count, total_tasks))
+    print(
+        "Employee {} is done with tasks({}/{}):".format(
+            user.get('name'), completed_count, total_tasks))
     for task in completed_tasks:
         print("\t " + task.get('title'))
 
