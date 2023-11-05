@@ -5,6 +5,7 @@ Script to gather data from the JSONPlaceholder API.
 Fetches and displays an employee's TODO list progress.
 """
 
+
 import requests
 import sys
 
@@ -36,4 +37,3 @@ if __name__ == "__main__":
     employee_id = sys.argv[1]
     # Calling the fetch_employee function
     fetch_employee_task(employee_id)
-    
